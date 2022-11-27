@@ -1,0 +1,22 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Url Shortner</a>
+  </nav>
+<div class="container" style="padding-top: 10%;">
+    <div class="d-flex justify-content-center">
+        <form class="row g-6" [formGroup]="urlLink" (ngSubmit)="onSubmit()">
+            <div class="col-auto">
+                <input type="text" class="form-control form-control-lg" id="url" name="url" formControlName="url"
+                    placeholder="Imput The URL" style="border-radius: 0px">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-dark btn-sm" type="submit" style="width: 100px; margin-top: 8px; ">Shorten</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div style="text-align :center; padding-top: 2%">
+    <ul class="list-group list-group-light" *ngFor='let data of responceData; index as i'>
+        <li class="list-group-item border-0">Short url {{i + 1}} : <a (click)="goToUrl(data)" target="_blank"
+                style="color: blue ;">{{data}}</a></li>
+    </ul>
+</div>
